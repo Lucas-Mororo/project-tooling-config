@@ -1,0 +1,75 @@
+{
+  // Controla a visibilidade da barra de status na parte inferior da janela.
+  // Opções válidas:
+  // true  - Exibe a barra de status (padrão do VS Code).
+  // false - Oculta a barra de status para dar mais espaço à tela.
+  "workbench.statusBar.visible": true,
+
+  // Controla como as abas de arquivos abertos são exibidas no topo do editor.
+  // Opções válidas:
+  // "multiple" - Exibe uma aba individual para cada arquivo aberto (padrão).
+  // "single"   - Exibe apenas uma única aba para o arquivo ativo atual.
+  // "none"     - Oculta a barra de abas completamente, ideal para visual minimalista.
+  "workbench.editor.showTabs": "multiple",
+
+  // Controla se os arquivos abertos por um clique simples na barra lateral
+  // são abertos como pré-visualização (modo Preview). Arquivos em Preview
+  // são fechados automaticamente se você abrir outro arquivo em seguida.
+  // Opções válidas:
+  // true  - Ativa o modo Preview (padrão). O nome do arquivo fica em itálico na aba.
+  // false - Desativa o modo Preview. Todo arquivo clicado abre em uma nova aba fixa.
+  "workbench.editor.enablePreview": true,
+
+  // Controla onde a barra de atividades (Activity Bar) é exibida.
+  // Nota: "default" NÃO é uma opção válida nesta configuração.
+  // Opções válidas:
+  // "default"   - Posiciona a barra na lateral (Este é o padrão de fábrica).
+  // "top"    - Agrupa os ícones no topo do painel lateral.
+  // "bottom" - Agrupa os ícones na base do painel lateral.
+  // "hidden" - Oculta completamente a barra de atividades.
+  "workbench.activityBar.location": "default",
+
+  // Formata o arquivo ao salvar usando o Prettier
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Roda o ESLint ao salvar e corrige automaticamente
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Controla se a extensão do ESLint deve usar o novo sistema Flat Config.
+  // Nota: O comportamento desta configuração depende da versão do ESLint no projeto:
+  // - No ESLint v8: Recomendado definir como true para habilitar o novo formato.
+  // - No ESLint v9: O padrão já é true (pode ser omitida).
+  // - No ESLint v10+: Esta configuração é ignorada (Flat Config é obrigatório).
+  // Opções válidas:
+  // true  - Força o uso do novo sistema Flat Config (eslint.config.js).
+  // false - Mantém o sistema legado anterior (.eslintrc.js, .eslintrc.json).
+  "eslint.useFlatConfig": true,
+
+  // Mostra régua visual em 100 caracteres (igual ao printWidth do Prettier)
+  "editor.rulers": [100],
+
+  // Usa 2 espaços por padrão
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // Fim de linha Unix
+  "files.eol": "\n",
+
+  // Trim automático de espaços em branco
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // Formata apenas a seleção modificada no diff (útil em PRs grandes)
+  "editor.formatOnSaveMode": "file",
+
+  // Exclui pastas do explorer para não poluir a visão
+  "files.exclude": {
+    "node_modules": true,
+    ".next": true,
+    "dist": true,
+    "build": true
+  }
+}
