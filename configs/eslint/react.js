@@ -1,3 +1,7 @@
+/**
+ * Configuração para projetos React/Next.js.
+ * Adiciona checagens de JSX, hooks e acessibilidade no fluxo de lint.
+ */
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";

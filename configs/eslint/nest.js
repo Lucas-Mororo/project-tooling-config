@@ -1,3 +1,7 @@
+/**
+ * Configuração específica para projetos NestJS.
+ * Desativa regras que conflitam com o padrão de classes e decorators do Nest.
+ */
 import nodeConfig from "./node.js";
 
 export default [

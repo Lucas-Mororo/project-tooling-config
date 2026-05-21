@@ -1,3 +1,6 @@
+# Lefthook configura ganchos Git que ajudam a manter a qualidade do código.
+# Copie esse arquivo para um projeto novo e execute "pnpm exec lefthook install".
+
 # Roda ANTES de cada commit
 pre-commit:
   parallel: true # Executa os jobs em paralelo (mais rápido)

@@ -2,7 +2,7 @@
   "name": "project-tooling-config",
   "author": "Lucas Martins Mororo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Template de tooling para novos projetos com ESLint, Prettier, Lefthook e scripts de setup.",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.1.3",

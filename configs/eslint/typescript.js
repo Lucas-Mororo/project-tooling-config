@@ -1,3 +1,8 @@
+/**
+ * Extensão da configuração base para projetos TypeScript.
+ * Inclui as regras recomendadas do plugin @typescript-eslint e ajustes
+ * para evitar falsos positivos com variáveis/descarte de argumentos.
+ */
 import tseslint from "typescript-eslint";
 
 import baseConfig from "./base.js";

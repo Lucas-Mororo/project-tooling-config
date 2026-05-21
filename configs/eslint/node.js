@@ -1,3 +1,7 @@
+/**
+ * Configuração para projetos Node.js escritos em TypeScript.
+ * Inclui regras especiais de ambiente Node e permite usar process.exit().
+ */
 import nodePlugin from "eslint-plugin-n";
 import globals from "globals";
 

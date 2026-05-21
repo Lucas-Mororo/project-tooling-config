@@ -1,3 +1,8 @@
+/**
+ * Configuração base de ESLint para projetos JavaScript e TypeScript.
+ * Este conjunto define as regras fundamentais de estilo de código,
+ * formatação e organização de importações para manter consistência.
+ */
 import js from "@eslint/js";
 import prettier from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";

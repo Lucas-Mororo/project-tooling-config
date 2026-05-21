@@ -1,3 +1,7 @@
+/**
+ * Configuração para projetos Next.js.
+ * Usa regras recomendadas do @next/eslint-plugin-next e Core Web Vitals.
+ */
 import nextPlugin from "@next/eslint-plugin-next";
 
 import reactConfig from "./react.js";
