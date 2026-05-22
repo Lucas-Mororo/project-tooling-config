@@ -5,8 +5,9 @@ param(
 
 Write-Host "Copiando tooling para: $TargetPath"
 
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$repoRoot = Join-Path $scriptDir '..'
+$scriptPath = (Resolve-Path -Path $MyInvocation.MyCommand.Path).Path
+$scriptDir = Split-Path -Parent $scriptPath
+$repoRoot = Resolve-Path -Path (Join-Path $scriptDir '..\..')
 
 $items = @(
   'lefthook.yml',
