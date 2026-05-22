@@ -5,16 +5,29 @@ set -euo pipefail
 # Uso: ./scripts/bootstrap-copy.sh /caminho/para/repo [--force]
 
 SRC_DIR=$(dirname "${BASH_SOURCE[0]}")/..
-TARGET=${1:-}
+TARGET=""
 FORCE=false
+MERGE_PACKAGE_JSON=false
 
-if [ "$TARGET" = "" ]; then
-  echo "Uso: $0 /caminho/para/repo [--force]"
+for arg in "$@"; do
+  case "$arg" in
+    --force)
+      FORCE=true
+      ;;
+    --merge-package-json)
+      MERGE_PACKAGE_JSON=true
+      ;;
+    *)
+      if [ -z "$TARGET" ]; then
+        TARGET="$arg"
+      fi
+      ;;
+  esac
+done
+
+if [ -z "$TARGET" ]; then
+  echo "Uso: $0 /caminho/para/repo [--force] [--merge-package-json]"
   exit 2
-fi
-
-if [ "${2:-}" = "--force" ]; then
-  FORCE=true
 fi
 
 echo "Copiando tooling from $SRC_DIR to $TARGET"
@@ -48,6 +61,11 @@ for f in "${FILES[@]}"; do
   rm -rf "$dest"
   cp -R "$src" "$dest"
 done
+
+if [ "$MERGE_PACKAGE_JSON" = true ]; then
+  echo "Mesclando package.json no destino..."
+  node "$SRC_DIR/scripts/merge-package-json.js" "$TARGET"
+fi
 
 echo "Cópia concluída. Recomendo executar no destino:"
 cat <<EOF

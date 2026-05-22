@@ -1,6 +1,7 @@
 param(
   [Parameter(Mandatory=$true)][string]$TargetPath,
-  [switch]$Force
+  [switch]$Force,
+  [switch]$MergePackageJson
 )
 
 Write-Host "Copiando tooling para: $TargetPath"
@@ -34,6 +35,17 @@ foreach ($item in $items) {
   if (Test-Path $dest) { Remove-Item -Recurse -Force $dest }
   Copy-Item -Path $src -Destination $dest -Recurse -Force
   Write-Host "Copiado: $item"
+}
+
+if ($MergePackageJson) {
+  $mergeScript = Join-Path -Path $repoRoot -ChildPath 'scripts\merge-package-json.js'
+  if (-not (Test-Path $mergeScript)) {
+    Write-Error "Não foi possível encontrar o script de merge: $mergeScript"
+    Exit 1
+  }
+
+  Write-Host "Mesclando package.json no destino..."
+  & node $mergeScript $TargetPath
 }
 
 Write-Host "Concluído. No destino run:"

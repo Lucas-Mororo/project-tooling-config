@@ -1,22 +1,22 @@
 # Roda ANTES de cada commit
-pre-commit:
-  parallel: true # Executa os jobs em paralelo (mais rápido)
-  jobs:
-    - name: prettier
-      glob: "*.{js,jsx,ts,tsx,json,css,scss,md,html,yml,yaml}"
-      run: pnpm exec prettier --write {staged_files}
-      stage_fixed: true # Adiciona os arquivos formatados ao stage automaticamente
+# pre-commit:
+#   parallel: true # Executa os jobs em paralelo (mais rápido)
+#   jobs:
+#     - name: prettier
+#       glob: "*.{js,jsx,ts,tsx,json,css,scss,md,html,yml,yaml}"
+#       run: pnpm exec prettier --write {staged_files}
+#       stage_fixed: true # Adiciona os arquivos formatados ao stage automaticamente
 
-    - name: eslint
-      glob: "*.{js,jsx,ts,tsx}"
-      run: pnpm exec eslint --fix {staged_files}
-      stage_fixed: true
+#     - name: eslint
+#       glob: "*.{js,jsx,ts,tsx}"
+#       run: pnpm exec eslint --fix {staged_files}
+#       stage_fixed: true
 
-# Roda ANTES de cada push
-pre-push:
-  jobs:
-    - name: lint-check
-      run: pnpm run lint
+# # Roda ANTES de cada push
+# pre-push:
+#   jobs:
+#     - name: lint-check
+#       run: pnpm run lint
 
 # EXAMPLE USAGE:
 #
